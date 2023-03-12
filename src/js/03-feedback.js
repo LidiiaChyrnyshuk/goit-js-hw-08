@@ -29,7 +29,7 @@ function inputSavedData() {
   const savedData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
 
   if (savedData) {
-    inputEl.value = savedData.email;
-    textareaEl.value = savedData.message;
+    inputEl.value = savedData.email || '';
+    textareaEl.value = savedData.message || '';
   }
 }
