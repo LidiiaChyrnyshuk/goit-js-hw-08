@@ -12,5 +12,5 @@ function playback({ seconds }) {
   localStorage.setItem(localStorageKey, seconds);
 }
 
-player.setCurrentTime(currentTime);
+player.setCurrentTime(currentTime || 0);
 
