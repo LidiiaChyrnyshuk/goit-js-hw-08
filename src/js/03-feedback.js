@@ -11,10 +11,16 @@ form.addEventListener('submit', onFormSubmit);
 
 inputSavedData();
 
+// function onFormInput(evt) {
+//   formData[evt.target.name] = evt.target.value;
+//   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
+//   //  console.log(formData);
+// }
+
 function onFormInput(evt) {
+  formData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || {};
   formData[evt.target.name] = evt.target.value;
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
-  //  console.log(formData);
 }
 
 function onFormSubmit(evt) {
@@ -26,7 +32,9 @@ function onFormSubmit(evt) {
   if (email.value === '' || message.value === '') {
     alert('Please fill in all the fields!');
   } 
-  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
+  // console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
+  const formElDetails = { email: email.value, message: message.value };
+  console.log(formElDetails);
   evt.currentTarget.reset();
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
