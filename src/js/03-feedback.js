@@ -30,7 +30,8 @@ function onFormSubmit(evt) {
     elements: { email, message }
   } = evt.currentTarget;
   if (email.value === '' || message.value === '') {
-    alert('Please fill in all the fields!');
+   return alert('Please fill in all the fields!');
+    
   } 
   // console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
   const formElDetails = { email: email.value, message: message.value };
